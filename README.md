@@ -66,3 +66,6 @@ Each dataset is contained in a gzipped, tab-separated-values (TSV) formatted fil
 
 ## REF: 
 https://www.kaggle.com/datasets/ashirwadsangwan/imdb-dataset?select=title.akas.tsv
+
+
+eliminar: https://www.kaggle.com/code/kamaleshsah/movie-recommendation
