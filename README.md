@@ -2,6 +2,8 @@
 
 
 1. [About Dataset](#schema1)
+2. [Name.tsv](#schema2)
+3. [Title_Akas.tsv](#schema3)
 2. [REF](#schemaref)
 
 <hr>
@@ -57,6 +59,23 @@ Each dataset is contained in a gzipped, tab-separated-values (TSV) formatted fil
     - knownForTitles (array of tconsts) – titles the person is known for.
 
 
+
+<hr>
+
+<a name="schema2"></a>
+
+## 2. Name.tsv
+
+1. Explode `knownForTitles`
+
+
+<hr>
+
+<a name="schema3"></a>
+
+## 3. Title_Akas.tsv
+
+1. Types = original
 
 
 

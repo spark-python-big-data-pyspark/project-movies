@@ -28,18 +28,11 @@ df_name.printSchema()
 
 print("-----------------title_akas-------------------------")
 
-
-# # Read data
-# df_akas = spark.read.csv("../data/title_akas.tsv", sep="\t", header=True)
+df_akas = spark.read.csv('../data/clean/title_akas.csv',header=True)
 
 
-# df_akas.show()
-
-# # Print Schema
-# df_akas.printSchema()
-
-# # Check Describe option similar to Pandas
-# df_akas.describe().show()
+# Check Describe option similar to Pandas
+df_akas.describe().show()
 
 # count_nulls_region = df_akas.select(sum(col("region").isNull().cast("int")).alias("Nulls")).collect()[0]["Nulls"]
 # count_nulls_region_N = df_akas.filter(col("region") == "\\N").count()
