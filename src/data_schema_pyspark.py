@@ -4,6 +4,7 @@ import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import split, explode
 from explode_row import explode_row
+from pyspark.sql.functions import col, sum
 
 
 
@@ -17,21 +18,12 @@ spark = SparkSession.builder \
 
 print("-----------------name-------------------------")
 # Read data
-df_name = spark.read.csv("../data/name.tsv", sep="\t", header=True)
+df_name = spark.read.csv("../data/clean/name.csv",  header=True)
 
-
-df_name.show()
+df_name.head(5)
 
 # Print Schema
 df_name.printSchema()
-
-# Check Describe option similar to Pandas
-df_name.describe().show()
-
-explode_row(df_name,"knownForTitles")
-
-# Check Describe option similar to Pandas
-df_name.describe().show()
 
 
 print("-----------------title_akas-------------------------")
@@ -46,7 +38,15 @@ print("-----------------title_akas-------------------------")
 # # Print Schema
 # df_akas.printSchema()
 
+# # Check Describe option similar to Pandas
+# df_akas.describe().show()
 
+# count_nulls_region = df_akas.select(sum(col("region").isNull().cast("int")).alias("Nulls")).collect()[0]["Nulls"]
+# count_nulls_region_N = df_akas.filter(col("region") == "\\N").count()
+# print("nulls region':", count_nulls_region,count_nulls_region_N)
+
+# count_nulls_language = df_akas.select(sum(col("language").isNull().cast("int")).alias("Nulls")).collect()[0]["Nulls"]
+# print("nulls language':", count_nulls_language)
 # print("-----------------title_basics-------------------------")
 
 
