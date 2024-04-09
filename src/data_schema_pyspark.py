@@ -45,3 +45,16 @@ df_basic.show()
 
 # Print Schema
 df_basic.printSchema()
+
+
+print("-----------------title_ratings-------------------------")
+
+
+# Read data
+df_ratings = spark.read.csv("../data/clean/title_ratings.csv",  header=True)
+
+
+df_ratings.show()
+
+# Print Schema
+df_ratings.printSchema()

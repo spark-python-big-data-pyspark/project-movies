@@ -1,8 +1,6 @@
 import pyspark
 from pyspark.sql import SparkSession
 
-from explode_row import explode_row
-
 from main import spark
 
 
